@@ -6,7 +6,20 @@
     <section class="py-5">
       <div class="container">
         <h1>Register New User</h1>
-        <form>
+
+        <!-- Display alert -->
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
+        <form method="POST" action="{{ route('user.register.post') }}">
+          @csrf
           <div class="form-group row">
             <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
@@ -22,7 +35,7 @@
           <div class="form-group row">
             <label for="inputIC3" class="col-sm-2 col-form-label">IC No</label>
             <div class="col-sm-10">
-              <input name="icno" type="email" class="form-control" id="inputIC3" placeholder="IC No without dash (-)">
+              <input name="icno" type="text" class="form-control" id="inputIC3" placeholder="IC No without dash (-)">
             </div>
           </div>
           <div class="form-group row">

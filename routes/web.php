@@ -25,3 +25,4 @@ Route::get('/', 'PortalController@index')->name('index');
 Route::get('/user/login', 'UserController@login')->name('user.login');
 Route::get('/user/register', 'UserController@register')->name('user.register');
 //Route::get('/user/index', 'UserController@index')->name('user.index');
+Route::post('/user/register', 'UserController@registerPost')->name('user.register.post');
