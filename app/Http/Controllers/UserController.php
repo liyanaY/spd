@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User; // model User
+use Auth;
 
 class UserController extends Controller
 {
@@ -12,6 +13,11 @@ class UserController extends Controller
     {
     	return view('frontend.index');
     }*/
+
+    public function dashboard()
+    {
+        return view('backend.index');
+    }
 
     public function login() 
     {
@@ -23,9 +29,16 @@ class UserController extends Controller
         return view('frontend.register');
     }
 
+    public function logout() 
+    {
+        Auth::logout(); // to logout current user
+        return redirect()->route('index')->withSuccess('Logout Success');
+    }
+
+    // Untuk register
     public function registerPost(Request $request)  // Request =  class name
     {
-    	$request->validate([
+        $request->validate([
             'name' => 'required', 
             'email' => 'required|email|unique:users', 
             'ic' => 'required|unique:users',
@@ -48,8 +61,27 @@ class UserController extends Controller
         
     }
 
-    /*public function home() 
+    // Untuk Login
+    public function loginPost(Request $request)  // Request =  class name
     {
-    	return view('frontend.index');
-    }*/
+    	$request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ], [
+            'email.required' => 'Sila masukkan nama',
+            'email.email' => 'Email tidak sah',
+            'password.required' => 'Masukkan password',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('user.dashboard');
+        }
+        else
+        {
+            return redirect()->back()->withError('Login Failed');
+        }
+    }
 }
