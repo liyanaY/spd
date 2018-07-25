@@ -298,7 +298,7 @@
                                     <a href="#">Senarai Sesi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Tambah Sesi</a>
+                                    <a href="{{ route('user.sesiAdd') }}">Tambah Sesi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

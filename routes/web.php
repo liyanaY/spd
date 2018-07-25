@@ -20,6 +20,7 @@ Route::get('/', function () { /* :: - static == sama function dengan -> eg: $rou
 
 Route::get('/', 'PortalController@index')->name('index');
 Route::get('/user', 'UserController@dashboard')->name('user.dashboard');
+Route::get('/user/sesiAdd', 'UserController@sesiAdd')->name('user.sesiAdd');
 
 // User route
 //Route::get('/user', 'UserController@index')->name('index'); // Ctrl+Shift+D - Duplicate file to new line

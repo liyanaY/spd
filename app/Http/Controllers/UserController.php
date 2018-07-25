@@ -19,6 +19,12 @@ class UserController extends Controller
         return view('backend.index');
     }
 
+    public function sesiAdd()
+    {
+        return view('backend.sesi_add');
+    }
+
+
     public function login() 
     {
     	return view('frontend.login');
