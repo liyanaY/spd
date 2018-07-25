@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User; // model User
 
 class UserController extends Controller
 {
@@ -34,6 +35,16 @@ class UserController extends Controller
             'email.email' => 'Email tidak sah',
             'email.unique' => 'Email telah wujud'
         ]);
+
+        // Untuk masukkan data ke dalam db
+        $user = new User(); // create new class named User (drp model User)
+        $user->name = $request->name; // asign variable
+        $user->email = $request->email;
+        $user->ic = $request->ic;
+        $user->password = bcrypt($request->password); // utk encrypt password using bcrypt function
+        $user->save(); // save ke db
+
+        return back()->with('success', 'Successfully register'); // with(<session>, <msg dia>)
         
     }
 

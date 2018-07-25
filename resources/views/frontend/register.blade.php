@@ -5,43 +5,35 @@
     <!-- Page Content -->
     <section class="py-5">
       <div class="container">
-        <h1>Register New User</h1>
+        <h1>Register New User</h1><br>
 
-        <!-- Display alert -->
-        @if ($errors->any())
-          <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
-        @endif
+        @include('common.alert')
+        @include('common.form_error')
 
         <form method="POST" action="{{ route('user.register.post') }}">
           @csrf
           <div class="form-group row">
-            <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-              <input name="name" type="text" class="form-control" id="inputName3" placeholder="Name">
+              <input name="name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{ old('name') }}">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{ old('email') }}">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputIC3" class="col-sm-2 col-form-label">IC No</label>
+            <label for="inputIc" class="col-sm-2 col-form-label">IC No</label>
             <div class="col-sm-10">
-              <input name="icno" type="text" class="form-control" id="inputIC3" placeholder="IC No without dash (-)">
+              <input name="ic" type="text" class="form-control" id="inputIc" placeholder="IC No without dash (-)" value="{{ old('ic') }}">
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-              <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
           </div>
           <div class="form-group row">
