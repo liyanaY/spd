@@ -20,6 +20,7 @@ class Sesi extends Migration
             $table->string('name');
             $table->boolean('status')->nullable;
             $table->string('pingat');
+            // created_at & updated_at
             $table->timestamps();
         });
     }

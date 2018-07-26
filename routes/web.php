@@ -19,14 +19,21 @@ Route::get('/', function () { /* :: - static == sama function dengan -> eg: $rou
 */
 
 Route::get('/', 'PortalController@index')->name('index');
-Route::get('/user', 'UserController@dashboard')->name('user.dashboard');
-Route::get('/user/sesiAdd', 'UserController@sesiAdd')->name('user.sesiAdd');
+//Route::get('/user/sesiAdd', 'UserController@sesiAdd')->name('user.sesiAdd');
 
 // User route
 //Route::get('/user', 'UserController@index')->name('index'); // Ctrl+Shift+D - Duplicate file to new line
 Route::get('/user/login', 'UserController@login')->name('user.login');
 Route::get('/user/register', 'UserController@register')->name('user.register');
 Route::get('/user/logout', 'UserController@logout')->name('user.logout');
+
 //Route::get('/user/index', 'UserController@index')->name('user.index');
 Route::post('/user/register', 'UserController@registerPost')->name('user.register.post');
 Route::post('/user/login', 'UserController@loginPost')->name('user.login.post');
+
+// Authentication Link
+
+Route::middleware(['auth'])->group(function(){
+	Route::get('/user', 'UserController@dashboard')->name('user.dashboard');
+	Route::resource('sesi', 'SesiController');
+});

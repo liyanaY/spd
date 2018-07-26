@@ -2,8 +2,8 @@
 
 @section('content')
 
-  @include('common.alert');
-  @include('common.form_error');
+  @include('common.alert')
+  @include('common.form_error')
 
     <!-- Page Content -->
     <section class="py-5">
