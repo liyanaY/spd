@@ -14,4 +14,15 @@ class Sesi extends Model
     // OR (EITHER ONE JE)
     // variable lalu form
     //protected $fillable = ['name', 'status', 'pingat']
+
+    // Accessor
+    public function getCreatedAtFormatAttribute()
+    {
+    	return $this->created_at->format('d M Y h:i:s');
+    }
+    public function getUpdatedAtFormatAttribute()
+    {
+    	return $this->updated_at->format('d M Y h:i:s');
+    }
+
 }

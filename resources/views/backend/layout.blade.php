@@ -283,10 +283,10 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> Pencalonan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Senarai Calon</a>
+                                    <a href="{{ route('pencalonan.index') }}">Senarai Calon</a>
                                 </li>
                                 <li>
-                                    <a href="#">Tambah Pencalonan</a>
+                                    <a href="{{ route('pencalonan.create') }}">Tambah Pencalonan</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
