@@ -21,6 +21,12 @@ class Calon extends Migration
             $table->string('email', 50);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->integer('user_id'); // pk
+            $table->integer('sesi_id');
+            $table->string('asas');
+            $table->string('ulasan')->nullable();
+
         });
     }
 

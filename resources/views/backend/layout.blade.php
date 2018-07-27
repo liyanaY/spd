@@ -32,7 +32,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    @stack('css')
 </head>
 
 <body>
@@ -291,6 +291,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        @role('admin')
                         <li>
                             <a href="#"><i class="fa fa-calendar fa-fw"></i> Sesi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -303,6 +304,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        @endrole
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -336,6 +338,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('backend/dist/js/sb-admin-2.js') }}"></script>
 
+    @stack('js')
 </body>
 
 </html>
